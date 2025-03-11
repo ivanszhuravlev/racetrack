@@ -15,7 +15,7 @@ body {
     cursor: url('images/cursor.webp'), auto; 
 }
 
-button {
+html * {
     cursor: url('images/cursor.webp'), pointer; 
 }
 
@@ -155,7 +155,7 @@ button {
 }
 
 .button:hover {
-    filter: grayscale(50%);
+    filter: grayscale(90%);
 }
 
 .button > img {
