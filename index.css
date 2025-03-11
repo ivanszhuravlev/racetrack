@@ -146,10 +146,16 @@ button {
     align-items: center;
 
     transition: opacity 0.5s ease-out;
+
+    transform: translateX(60px);
 }
 
 .button:active {
-    transform: translateY(4px);
+    transform: translateX(58px) translateY(4px);
+}
+
+.button:hover {
+    filter: grayscale(50%);
 }
 
 .button > img {
@@ -162,9 +168,9 @@ button {
 .button-label::after {
     content: "press 'space'";
     display: inline-block;
-    font-size: 18px;
+    font-size: 16px;
     color: #99b0bd;
-    margin-left: 8px;
+    margin-left: 12px;
 }
 
 .fence-container {

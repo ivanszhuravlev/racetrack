@@ -5,3 +5,7 @@
  - redesign button bar
  - create enter event listener to play
  - rethink the algorythm
+
+
+ - use blend modes to color the horses
+ - make an icon
