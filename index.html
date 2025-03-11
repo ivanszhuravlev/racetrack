@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Boilerplate</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- <h1>Hello, World!</h1> -->
+    <!-- <button id="myButton">Click Me</button> -->
+    <div class="viewport" id="viewport">
+        <div class="stadium" id="stadium">
+
+        </div>
+        <div class="panel">
+            <button id="play" class="button play">
+                <img src="images/btn.png" />
+                <span class="button-label">Play</span>
+                <!-- <span class="hotkey">(press "space")</span> -->
+            </button>
+        </div>
+
+        <div id="winner-container" class="winner-container">
+            <span class="winner-title">We have a winner!</span>
+            <span class="winner-name" id="winner-name"> </span>
+        </div>
+    </div>
+
+    <div class="sprites">
+        <!-- <div id="fence-sprite" class="fence-container">
+            <div class="fence"></div>
+        </div> -->
+
+        <div id="horse-tableau-sprite" class="horse-tableau-container">
+            <div class="horse-tableau-label"></div>
+        </div>
+
+        <div id="track-sprite" class="track-container">
+            <div class="track-layer track-route"></div>
+            <div class="track-layer track-graphics">
+                <div class="on-grass">
+                    <div class="fence-container">
+                        <div class="fence"></div>
+                    </div>
+                </div>
+                <div class="grass"></div>
+            </div>
+            <div class="track-layer track-label"></div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

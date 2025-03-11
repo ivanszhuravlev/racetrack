@@ -1,0 +1,198 @@
+@font-face {
+    font-family: 'Main';
+    src: url('fonts/joystix.otf') format('opentype'); /* OTF format */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@keyframes upDown {
+    0% { transform: translateY(6px); }
+    100% { transform: translateY(1px); }
+}
+
+body {
+    margin: 0px;
+    cursor: url('images/cursor.webp'), auto; 
+}
+
+button {
+    cursor: url('images/cursor.webp'), pointer; 
+}
+
+.sprites {
+    display: none;
+}
+
+/* h1 {
+    color: #333;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+} */
+
+.viewport {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    height: 100vh;
+}
+
+.stadium {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.panel {
+    height: 100px;
+    width: 100%;
+    /* background-color: #ff00ff; */
+    background-color: #ececec;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.track-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.track-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.track-graphics {
+    display: flex;
+    flex-direction: column;
+}
+
+.track-label {
+    font-family: 'Main', sans-serif;
+    font-size: 24px;
+    text-align: center;
+    display: flex;
+    align-items: center;  /* Centers vertically */
+    justify-content: center;
+    transition: opacity 0.5s linear;
+}
+
+.horse {
+    height: 100%;
+    width: auto; /* This will respect aspect ratio */
+    aspect-ratio: 1 / 1;
+    /* transition: margin-left 2s linear; */
+    /* margin-left: 100px; */
+    background-size: cover;
+    background-position: center;
+
+    animation: upDown 0.3s infinite alternate ease-out;
+    transition: marginLeft 1s linear;
+}
+
+.winner-container {
+    position: absolute;
+    /* background-color: #ffffff; */
+    background-image: url("images/board.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    aspect-ratio: 1.46;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 36px;
+    display: none;
+
+    flex-direction: column;
+}
+
+.winner-title {
+    font-size: 24px;
+    margin-bottom: 24px;
+
+    font-family: Main;
+
+    padding: 4px 18px;
+}
+
+.winner-name {
+    font-size: 18px;
+    text-align: center;
+    font-family: Main;
+}
+
+.button {
+    font-family: 'Main', sans-serif;
+    /* background-color: linear-gradient(#cd41d6, #ff0000); */
+    /* background: linear-gradient(#cd41d6, #cf73d5); */
+    font-size: 24px;
+    color: #346b8e;
+    border: 0;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+
+    transition: opacity 0.5s ease-out;
+}
+
+.button:active {
+    transform: translateY(4px);
+}
+
+.button > img {
+    width: 32px;
+    height: 32px;
+
+    margin-right: 8px;
+}
+
+.button-label::after {
+    content: "press 'space'";
+    display: inline-block;
+    font-size: 18px;
+    color: #99b0bd;
+    margin-left: 8px;
+}
+
+.fence-container {
+    position: absolute;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.on-grass {
+    width: 100%;
+    flex: 1;
+}
+
+.fence {
+    background-image: url('images/fence.png');
+    background-size: cover;
+    background-position: center;
+
+    width: auto;
+    height: 50%;
+    margin-top: 50%;
+
+    transition: all 0.2s linear;
+}
+
+.grass {
+    width: 100%;
+    height: 4px;
+    background-color: rgb(49, 49, 49);
+    border-top: 5px dashed rgb(255,255,255);
+}
