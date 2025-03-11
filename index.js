@@ -298,7 +298,8 @@ const endRound = (horses, winnerIndex, scores) => {
     Graphics.showButton();
 }
 
-const play = (tracks, horses, scores) => {
+const play = function (tracks, horses, scores) {
+    let isPlaying = true;
     // const trackPoints = GameCore.createPoints(3);
     const totalDistance = window.innerWidth - horses[0].element.clientWidth;
     // let animationRunning = true;
@@ -308,16 +309,14 @@ const play = (tracks, horses, scores) => {
     startRound(horses, winnerIndex, scores);
 
     function animate() {
-        let stopAll = false;
-
         horses.forEach(horse => {
             const horseElement = horse.element;
             let currentPos = parseFloat(horseElement.style.marginLeft) || 0;
-            let newPos = currentPos + Math.random() * Math.floor(GameCore.getRandomInRange(5, 15)); // Adjust speed
+            let newPos = currentPos + Math.random() * Math.floor(GameCore.getRandomInRange(0, 15)); // Adjust speed
 
             if (newPos >= totalDistance) {
                 newPos = totalDistance;
-                stopAll = true; // If one reaches the end, stop all
+                isPlaying = false // If one reaches the end, stop all
                 winnerIndex = horse.index;
                 GameCore.declareWinner(scores[horse.index])
                 GameCore.showWinner(horse)
@@ -330,12 +329,12 @@ const play = (tracks, horses, scores) => {
             horseElement.style.marginLeft = newPos + "px";
         });
 
-        if (!stopAll) {
+        if (isPlaying) {
             requestAnimationFrame(animate);
         }
     }
 
-    animate();
+    animate();    
 }
 
 function main() {
@@ -343,8 +342,6 @@ function main() {
         const TRACKS = generateTracks(7);
         const HORSES = generateHorses(TRACKS);
         const SCORES = generateScores(TRACKS, HORSES);
-        
-        // Graphics.createFences(TRACKS);
         
         document.getElementById("play").addEventListener("click", () => play(TRACKS, HORSES, SCORES));
         document.addEventListener('keydown', function(event) {
